@@ -2,7 +2,6 @@ package IU;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
@@ -53,7 +52,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     public VentanaPrincipal() {
         initComponents();
-        panelXogo.setFocusable(true);
+        panelXogo.setBounds(0, 0, 450, 650);
+        
 
     }
 
@@ -94,7 +94,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 panelXogoKeyPressed(evt);
             }
         });
-        panelXogo.setLayout(null);
+
+        javax.swing.GroupLayout panelXogoLayout = new javax.swing.GroupLayout(panelXogo);
+        panelXogo.setLayout(panelXogoLayout);
+        panelXogoLayout.setHorizontalGroup(
+            panelXogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 496, Short.MAX_VALUE)
+        );
+        panelXogoLayout.setVerticalGroup(
+            panelXogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 696, Short.MAX_VALUE)
+        );
+
         getContentPane().add(panelXogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 500, 700));
 
         panelPuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -271,32 +282,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         iniciarPartida();
+        panelXogo.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void panelXogoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelXogoKeyPressed
         // TODO add your handling code here:
 
-        try {
-            switch (evt.getKeyCode()) {
-                case KeyEvent.VK_A -> {
-                    xogo.moverFichaEsquerda();
-
-                }
-                case KeyEvent.VK_D -> {
-                    xogo.moverFichaDereita();
-                }
-                case KeyEvent.VK_S -> {
-                    xogo.moverFichaAbaixo();
-                }
-                case KeyEvent.VK_W -> {
-                    xogo.rotarFicha();
-                }
-                default -> {
-                }
-            }
-        } catch (NullPointerException e) {
-            System.out.println("No hay ninguna ficha creada.");
+        char letra = evt.getKeyChar();
+        if (letra == 'a') {
+           xogo.moverFichaEsquerda();
+            System.out.println("Movese a ficha");
         }
+        if (letra == 'd') {
+            xogo.moverFichaEsquerda();
+        }
+        if (letra == 's') {
+            xogo.moverFichaAbaixo();
+        }
+        if (letra == 'w') {
+            xogo.rotarFicha();
+        }
+
     }//GEN-LAST:event_panelXogoKeyPressed
 
     public void pintarCadrado(JLabel lblCadrado) {

@@ -59,6 +59,7 @@ public class FichaBarra extends Ficha {
                 posicion++;
             }
             default -> {
+                System.out.println("Non se detecta");
             }
         }
         if (posicion == 2) {

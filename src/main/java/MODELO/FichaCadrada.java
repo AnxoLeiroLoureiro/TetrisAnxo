@@ -12,10 +12,10 @@ import java.awt.Color;
  */
 public class FichaCadrada extends Ficha {
 
-    Cadrado c1 = new Cadrado(100, -50, Color.GREEN);
-    Cadrado c2 = new Cadrado(150, -50, Color.GREEN);
-    Cadrado c3 = new Cadrado(150, 0, Color.GREEN);
-    Cadrado c4 = new Cadrado(100, 0, Color.GREEN);
+    Cadrado c1 = new Cadrado(200, -50, Color.GREEN);
+    Cadrado c2 = new Cadrado(250, -50, Color.GREEN);
+    Cadrado c3 = new Cadrado(250, 0, Color.GREEN);
+    Cadrado c4 = new Cadrado(200, 0, Color.GREEN);
 
     public FichaCadrada(Xogo xogo) {
         super(xogo);

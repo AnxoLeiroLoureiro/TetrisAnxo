@@ -39,6 +39,7 @@ public class FichaL extends Ficha {
                 c4.lblCadrado.setLocation(c4.x, c4.y - (xogo.LADOCADRADO * 2));
                 c4.y -= (xogo.LADOCADRADO * 2);
                 posicion++;
+                System.out.println("Rotando");
             }
             case 1 -> {
                 c1.lblCadrado.setLocation(c1.x + xogo.LADOCADRADO, c1.y + xogo.LADOCADRADO);

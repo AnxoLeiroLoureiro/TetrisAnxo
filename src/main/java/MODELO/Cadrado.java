@@ -30,7 +30,7 @@ public class Cadrado {
         lblCadrado.setOpaque(true);
         lblCadrado.setVisible(true);
     }
-
+    
     public void setCorRecheo(Color corRecheo) {
         this.corRecheo = corRecheo;
     }
@@ -45,10 +45,6 @@ public class Cadrado {
 
     public JLabel getLblCadrado() {
         return lblCadrado;
-    }
-
-    public Cadrado() {
-
     }
 
     public int getX() {

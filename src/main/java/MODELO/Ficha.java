@@ -22,11 +22,12 @@ public abstract class Ficha {
     }
 
     public boolean moverDereita() {
+        System.out.println("True");
         boolean mover = true;
         Iterator<Cadrado> iter = cadrados.iterator();
         while (iter.hasNext()) {
             Cadrado cmover = iter.next();
-            if (cmover.lblCadrado.x == xogo.MAX_X) {
+            if (cmover.lblCadrado.getX() == xogo.MAX_X) {
                 mover = false;
             }
         }
@@ -38,7 +39,7 @@ public abstract class Ficha {
         Iterator<Cadrado> iter = cadrados.iterator();
         while (iter.hasNext()) {
             Cadrado cmover = iter.next();
-            if (cmover.x == 0) {
+            if (cmover.getX() == 0) {
                 mover = false;
             }
         }
@@ -46,12 +47,13 @@ public abstract class Ficha {
     }
 
     public boolean moverAbaixo() {
+        System.out.println("bai");
         Iterator<Cadrado> iter = cadrados.iterator();
         while (iter.hasNext()) {
             Cadrado cmover = iter.next();
-            cmover.lblCadrado.setLocation(cmover.x, cmover.y + xogo.LADOCADRADO);
+            cmover.lblCadrado.setLocation(cmover.getX(), cmover.getY() + xogo.LADOCADRADO);
             cmover.y += xogo.LADOCADRADO;
-            System.out.print(cmover.x + "" + "" + cmover.y);
+            System.out.print(cmover.getX() + " , " + "" + cmover.getY()+", ");
         }
         return true;
     }

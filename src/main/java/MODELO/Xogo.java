@@ -29,25 +29,28 @@ public class Xogo {
     }
 
     public void moverFichaDereita() {
+        System.out.println("mover dereita");
         if (fichaActual.moverDereita()) {
             Iterator<Cadrado> iter = fichaActual.cadrados.iterator();
             while (iter.hasNext()) {
-                Cadrado item = iter.next();
-                item.lblCadrado.setLocation(item.x + LADOCADRADO, item.y);
-                 item.x += LADOCADRADO;
+                Cadrado cmover = iter.next();
+                cmover.lblCadrado.setLocation(cmover.getX() + LADOCADRADO, cmover.getY());
+                 cmover.x += LADOCADRADO;
+                 System.out.print(cmover.getX() + " , " + "" + cmover.getY()+", ");
             }
         }
         actualizarGraf();
     }
 
     public void moverFichaEsquerda() {
-        System.out.println("mover cadrado esquerda");
+        System.out.println("mover esquerda");
         if (fichaActual.moverEsquerda()) {
             Iterator<Cadrado> iter = fichaActual.cadrados.iterator();
             while (iter.hasNext()) {
-                Cadrado item = iter.next();
-                item.lblCadrado.setLocation(item.x - LADOCADRADO, item.y);
-                item.x -= LADOCADRADO;
+                Cadrado cmover = iter.next();
+                cmover.lblCadrado.setLocation(cmover.getX() - LADOCADRADO, cmover.getY());
+                cmover.x -= LADOCADRADO;
+                System.out.print(cmover.getX() + " , " + "" + cmover.getY()+", ");
                 
             }
         }
@@ -55,6 +58,7 @@ public class Xogo {
     }
 
     public void rotarFicha() {
+        System.out.println("Rotar");
         fichaActual.rotar();
         actualizarGraf();
     }
@@ -64,7 +68,7 @@ public class Xogo {
         Iterator<Cadrado> iter = fichaActual.cadrados.iterator();
         while (iter.hasNext()) {
             Cadrado c = iter.next();
-            if ((c.x >= 0) && (c.x <= MAX_X)) {
+            if ((c.getX() >= 0) && (c.getX() <= MAX_X)) {
                 posicionValida = true;
             }
         }
@@ -77,16 +81,16 @@ public class Xogo {
         while (its.hasNext()) {
 
             Cadrado c = its.next();
-            System.out.println(c.getLblCadrado().getHorizontalAlignment());
+            if(c.lblCadrado.getX() < 450 || c.lblCadrado.getY() < 650)
             ventanaPrincipal.pintarCadrado(c.getLblCadrado());
-            System.out.println("Hola");
+            System.out.println("Ficha xerada");
         }
     }
 
     private Ficha fichaAleatoria() {
         int aleatorio = (int) Math.floor(Math.random() * 4 + 1);
         Ficha fichaleatoria = null;
-     
+        aleatorio = 2;
         switch (aleatorio) {
             case 1 -> {
                 fichaleatoria = new FichaBarra(this);
@@ -111,8 +115,8 @@ public class Xogo {
     public void engadirFichaAoChan() {
         Iterator<Cadrado> iter = fichaActual.cadrados.iterator();
         while (iter.hasNext()) {
-            Cadrado item = iter.next();
-            cadradosChan.add(item);
+            Cadrado cmover = iter.next();
+            cadradosChan.add(cmover);
         }
     }
 
@@ -128,8 +132,8 @@ public class Xogo {
         boolean chocaCoChan = false;
         Iterator<Cadrado> iter = fichaActual.cadrados.iterator();
         while (iter.hasNext()) {
-            Cadrado item = iter.next();
-            if (item.y == MAX_Y || comprobarCadradosChan(item.y, item.x)) {
+            Cadrado cmover = iter.next();
+            if (cmover.getY() == MAX_Y || comprobarCadradosChan(cmover.getY(), cmover.getX())) {
                 chocaCoChan = true;
             }
         }
@@ -141,8 +145,8 @@ public class Xogo {
         boolean chocaCoChan = false;
         Iterator<Cadrado> iter = cadradosChan.iterator();
         while (iter.hasNext()) {
-            Cadrado item = iter.next();
-            if ((item.y == (y + LADOCADRADO)) && (item.x == x)) {
+            Cadrado cmover = iter.next();
+            if ((cmover.y == (y + LADOCADRADO)) && (cmover.x == x)) {
                 chocaCoChan = true;
             }
         }
@@ -150,6 +154,7 @@ public class Xogo {
     }
 
     public void moverFichaAbaixo() {
+        System.out.println("Mover");
         fichaActual.moverAbaixo();
         actualizarGraf();
     }
